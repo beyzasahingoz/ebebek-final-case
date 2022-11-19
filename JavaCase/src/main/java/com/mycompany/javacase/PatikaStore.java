@@ -39,6 +39,7 @@ public class PatikaStore {
         Phone SAMSUNG_A51 = new Phone(1, "SAMSUNG GALAXY A51", 3199.0, "Samsung", 128, 6.5, 4000.0, 6, "Siyah", 153, 25);
         Phone iPhone_11_64 = new Phone(2, "iPhone 11 64 GB ", 7379.0, "Apple", 64, 6.1, 3046.0, 6, "mavi", 547, 12);
         Phone Redmi_Note_10_pro = new Phone(3, "Redmi Note 10 Pro 8GB ", 4012.0, "Xiaomi", 128, 6.5, 4000.0, 12, "Beyaz", 764, 4);
+        
         Notebook HUAWEI_Matebook = new Notebook(1, "HUAWEI Matebook 14", 7000.0, "Huawei", 512, 14.0, 16, 134, 12);
         Notebook LENOVO_V14 = new Notebook(2, "LENOVO V14 IGL", 3699.0, "Lenovo", 1024, 14.0, 8, 123, 15);
         Notebook ASUS_Tuf = new Notebook(3, "ASUS Tuf Gaming ", 8199.0, "Asus", 2048, 15.6, 32, 435, 8);
@@ -46,6 +47,7 @@ public class PatikaStore {
         productPhone.put(SAMSUNG_A51.getId(), SAMSUNG_A51);
         productPhone.put(iPhone_11_64.getId(), iPhone_11_64);
         productPhone.put(Redmi_Note_10_pro.getId(), Redmi_Note_10_pro);
+        
         productNotebook.put(HUAWEI_Matebook.getId(), HUAWEI_Matebook);
         productNotebook.put(LENOVO_V14.getId(), LENOVO_V14);
         productNotebook.put(ASUS_Tuf.getId(), ASUS_Tuf);
@@ -97,8 +99,6 @@ public class PatikaStore {
                     break;
 
                 case 3:
-
-                    System.out.println("Enter the name of brand");
                     for (Notebook i : productNotebook.values()) {
 
                         System.out.println(i.getBrand());
@@ -109,6 +109,7 @@ public class PatikaStore {
                         System.out.println(i.getBrand());
 
                     }
+                    System.out.println("Enter the name of brand");
                     String choiceBrand = input.next();
 
                     System.out.println("----------------------------------------------------------------------------------------------------------------------------------------");
@@ -163,13 +164,9 @@ public class PatikaStore {
 
                             System.out.println("Enter the product's ID:");
                             productPhone.keySet().remove(input.nextInt());
-
                         }
-
                     }
-
                     break;
-
                 case 5:
 
                     System.out.println("Thanks, see you!");
