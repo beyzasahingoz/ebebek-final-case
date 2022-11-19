@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.mycompany.javacase;
 
 /**
@@ -11,6 +10,7 @@ package com.mycompany.javacase;
  * @author ayza
  */
 public class Phone {
+
     private int Id;
     private double price;
     private int discountRate;
@@ -23,25 +23,24 @@ public class Phone {
     private int ram;
     private String color;
 
-    public Phone(int Id, String name, double price, String brand, int memory, double screen,double battery,int ram,String color, int stock, int discountRate){
-        this.Id=Id;
-        this.name=name;
-        this.price=price;
-        this.brand= brand;
-        this.memory=memory;
-        this.screen=screen;
-        this.battery=battery;
-        this.ram=ram;
-        this.color=color;
-        this.stock=stock;
-        this.discountRate=discountRate;
+    public Phone(int Id, String name, double price, String brand, int memory, double screen, double battery, int ram, String color, int stock, int discountRate) {
+        this.Id = Id;
+        this.name = name;
+        this.price = price;
+        this.brand = brand;
+        this.memory = memory;
+        this.screen = screen;
+        this.battery = battery;
+        this.ram = ram;
+        this.color = color;
+        this.stock = stock;
+        this.discountRate = discountRate;
     }
 
-    
-    void print(){
+    void print() {
 
-        System.out.printf(" |%-5d |%-23s| %-8.1fTL| %-10s| %-8d| %-9.1f| %-9.1f| %-8d| %-7s| %-5d| %-16d|\n",Id , name ,price , brand  ,memory
-                , screen  , battery , ram , color,stock,discountRate);
+        System.out.printf(" |%-5d |%-23s| %-8.1fTL| %-10s| %-8d| %-9.1f| %-9.1f| %-8d| %-7s| %-5d| %-16d|\n", Id, name, price, brand, memory,
+                 screen, battery, ram, color, stock, discountRate);
     }
 
     public int getId() {
