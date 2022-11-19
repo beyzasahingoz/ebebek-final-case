@@ -27,7 +27,7 @@ public class PatikaStore {
         Brand.add("Samsung");
         Brand.add("Lenovo");
         Brand.add("Apple");
-        Brand.add("Huawei,");
+        Brand.add("Huawei");
         Brand.add("Casper");
         Brand.add("Asus");
         Brand.add("HP");
@@ -36,12 +36,12 @@ public class PatikaStore {
 
         Collections.sort(Brand);
 
-        Phone SAMSUNG_A51 = new Phone(1, "SAMSUNG GALAXY A51", 3199.0, "Samsung ", 128, 6.5, 32, 4000.0, 6, "Siyah");
-        Phone iPhone_11_64 = new Phone(2, "iPhone 11 64 GB ", 7379.0, "Apple ", 64, 6.1, 5, 3046.0, 6, "mavi");
-        Phone Redmi_Note_10_pro = new Phone(3, "Redmi Note 10 Pro 8GB ", 4012.0, "Xiaomi", 128, 6.5, 35, 4000.0, 12, "Beyaz");
-        Notebook HUAWEI_Matebook = new Notebook(1, "HUAWEI Matebook 14", 7000.0, "Huawei", 512, 14.0, 16);
-        Notebook LENOVO_V14 = new Notebook(2, "LENOVO V14 IGL", 3699.0, "Lenovo", 1024, 14.0, 8);
-        Notebook ASUS_Tuf = new Notebook(3, "ASUS Tuf Gaming ", 8199.0, "Asus", 2048, 15.6, 32);
+        Phone SAMSUNG_A51 = new Phone(1, "SAMSUNG GALAXY A51", 3199.0, "Samsung", 128, 6.5, 4000.0, 6, "Siyah", 153, 25);
+        Phone iPhone_11_64 = new Phone(2, "iPhone 11 64 GB ", 7379.0, "Apple", 64, 6.1, 3046.0, 6, "mavi", 547, 12);
+        Phone Redmi_Note_10_pro = new Phone(3, "Redmi Note 10 Pro 8GB ", 4012.0, "Xiaomi", 128, 6.5, 4000.0, 12, "Beyaz", 764, 4);
+        Notebook HUAWEI_Matebook = new Notebook(1, "HUAWEI Matebook 14", 7000.0, "Huawei", 512, 14.0, 16, 134, 12);
+        Notebook LENOVO_V14 = new Notebook(2, "LENOVO V14 IGL", 3699.0, "Lenovo", 1024, 14.0, 8, 123, 15);
+        Notebook ASUS_Tuf = new Notebook(3, "ASUS Tuf Gaming ", 8199.0, "Asus", 2048, 15.6, 32, 435, 8);
 
         productPhone.put(SAMSUNG_A51.getId(), SAMSUNG_A51);
         productPhone.put(iPhone_11_64.getId(), iPhone_11_64);
@@ -72,7 +72,7 @@ public class PatikaStore {
                 case 1:
 
                     System.out.println("------------------------------------------------------------------------------------------------------");
-                    System.out.println(" | ID  | Product Name      | Price      | Brand     | Memory  |  Screen  |   RAM      |");
+                    System.out.println(" | ID  | Product Name      | Price      | Brand     | Memory  |  Screen  |   RAM    | Stock  | Discount Rate(%)|");
                     System.out.println("------------------------------------------------------------------------------------------------------");
                     for (Notebook i : productNotebook.values()) {
 
@@ -86,7 +86,7 @@ public class PatikaStore {
 
                 case 2:
                     System.out.println("----------------------------------------------------------------------------------------------------------------------------------------");
-                    System.out.println("| ID    |  Product Name       | Price      | Brand     | Memory  | Screen   | Canera  | Battery  | RAM   | Color           |");
+                    System.out.println("| ID    |  Product Name         | Price      | Brand     | Memory  | Screen   | Battery  | RAM   | Color  | Stock | Discount Rate(%)|");
                     System.out.println("----------------------------------------------------------------------------------------------------------------------------------------");
                     for (Phone i : productPhone.values()) {
 
@@ -99,20 +99,30 @@ public class PatikaStore {
                 case 3:
 
                     System.out.println("Enter the name of brand");
-                    System.out.println("-Apple \n - Asus \n - Casper \n - HP  \n- Huawei  \n- Lenovo \n "
-                            + "- Monster \n - Samsung  \n- Xiaomi");
+                    for (Notebook i : productNotebook.values()) {
+
+                        System.out.println(i.getBrand());
+
+                    }
+                    for (Phone i : productPhone.values()) {
+
+                        System.out.println(i.getBrand());
+
+                    }
                     String choiceBrand = input.next();
 
                     System.out.println("----------------------------------------------------------------------------------------------------------------------------------------");
-                    System.out.println("| ID    |  Product Name     | Price     | Brand     | Memory  | Screen     | Camera    | Battery  | RAM   | Color            |");
+                    System.out.println("| ID    |  Product Name     | Brand |");
                     System.out.println("----------------------------------------------------------------------------------------------------------------------------------------");
 
                     for (int i = 0; i < listProductPhone.size(); i++) {
                         if (listProductPhone.get(i).getBrand().equals(choiceBrand)) {
-                            listProductPhone.get(i).print();
+                            System.out.printf("|%-6d |%-19s|%-7s|\n", listProductPhone.get(i).getId(), listProductPhone.get(i).getName(), listProductPhone.get(i).getBrand());
                         }
+                    }
+                    for (int i = 0; i < listProductNotebook.size(); i++) {
                         if (listProductNotebook.get(i).getBrand().equals(choiceBrand)) {
-                            listProductNotebook.get(i).print();
+                            System.out.printf("|%-6d |%-19s|%-7s|\n", listProductNotebook.get(i).getId(), listProductNotebook.get(i).getName(), listProductNotebook.get(i).getBrand());
                         }
                     }
                     System.out.println("----------------------------------------------------------------------------------------------------------------------------------------");
@@ -127,16 +137,16 @@ public class PatikaStore {
                         int choiceAddCategory = input.nextInt();
                         if (choiceAddCategory == 1) {
 
-                            System.out.println("Product ID,  Name, Price, Brand, Memory, Screen, Ram (Enter the values in order)");
+                            System.out.println("Product ID,  Name, Price, Brand, Memory, Screen, Ram, Stock,Discount Rate (Enter the values in order)");
                             Notebook comp = new Notebook(input.nextInt(), input.next(),
-                                    input.nextDouble(), input.next(), input.nextInt(), input.nextDouble(), input.nextInt());
+                                    input.nextDouble(), input.next(), input.nextInt(), input.nextDouble(), input.nextInt(), input.nextInt(), input.nextInt());
 
                             productNotebook.put(comp.getId(), comp);
                         } else {
 
-                            System.out.println("Product ID,  Name, Price, Brand, Memory, Screen, Camera, Battery, Ram, Color (Enter the values in order)");
+                            System.out.println("Product ID,  Name, Price, Brand, Memory, Screen, Battery, Ram, Color,Stock, Discount Rate (Enter the values in order)");
                             Phone phone = new Phone(input.nextInt(), input.next(), input.nextDouble(), input.next(), input.nextInt(),
-                                    input.nextDouble(), input.nextInt(), input.nextDouble(), input.nextInt(), input.next());
+                                    input.nextDouble(), input.nextDouble(), input.nextInt(), input.next(), input.nextInt(), input.nextInt());
 
                             productPhone.put(phone.getId(), phone);
                         }
