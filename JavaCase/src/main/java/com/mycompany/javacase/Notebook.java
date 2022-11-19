@@ -21,7 +21,7 @@ private int Id;
     private int memory;
     private double screen;
 
-    public Notebook(int Id, String name,double price,String brand,int memory,double screen,int ram){
+    public Notebook(int Id, String name,double price,String brand,int memory,double screen,int ram,int stock,int discountRate){
         this.Id=Id;
         this.name=name;
         this.price=price;
@@ -29,14 +29,14 @@ private int Id;
         this.memory=memory;
         this.screen=screen;
         this.ram=ram;
+        this.stock=stock;
+        this.discountRate=discountRate;
     }
 
 
     
     void print(){
-
-        System.out.printf(" |%-4d| %-20s| %-8.1fTL| %-8s| %-8d| %-8.1f| %-14d|\n" ,Id ,  name , price , brand , memory , screen , ram);
-
+        System.out.printf(" |%-4d| %-20s| %-8.1fTL| %-8s| %-8d|   %-8.1f | %-8d|%-10d|%-16d|\n" ,Id ,  name , price , brand , memory , screen , ram,stock,discountRate);
     }
 
     public int getId() {
