@@ -22,26 +22,26 @@ public class Phone {
     private double battery;
     private int ram;
     private String color;
-    int camera;
 
-    public Phone(int Id,String name, double price,String brand, int memory, double screen,int camera,double battery,int Ram,String color){
+    public Phone(int Id, String name, double price, String brand, int memory, double screen,double battery,int ram,String color, int stock, int discountRate){
         this.Id=Id;
         this.name=name;
         this.price=price;
         this.brand= brand;
         this.memory=memory;
         this.screen=screen;
-        this.ram=ram;
-        this.camera=camera;
         this.battery=battery;
+        this.ram=ram;
         this.color=color;
+        this.stock=stock;
+        this.discountRate=discountRate;
     }
 
     
     void print(){
 
-        System.out.printf(" |%-5d |%-20s| %8.1fTL| %-8s| %-8d| %-8.1f| %-12d| %-8.1f| %-8d| %-20s|\n",Id , name ,price , brand  ,memory
-                , screen  , camera , battery , ram , color);
+        System.out.printf(" |%-5d |%-23s| %-8.1fTL| %-10s| %-8d| %-9.1f| %-9.1f| %-8d| %-7s| %-5d| %-16d|\n",Id , name ,price , brand  ,memory
+                , screen  , battery , ram , color,stock,discountRate);
     }
 
     public int getId() {
